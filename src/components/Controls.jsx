@@ -35,6 +35,11 @@ const Controls = ({ selectedColor, onColorSelect }) => {
         isSelected={selectedColor === 'red'}
         onClick={() => onColorSelect('red')}
       />
+      <ColorButton 
+        color="blue"
+        isSelected={selectedColor === 'blue'}
+        onClick={() => onColorSelect('blue')}
+      />
     </ControlsContainer>
   );
 };
