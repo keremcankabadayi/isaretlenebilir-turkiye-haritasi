@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/isaretlenebilir-turkiye-haritasi/static/css/main.350da595.css",
-    "main.js": "/isaretlenebilir-turkiye-haritasi/static/js/main.c4f27708.js",
+    "main.js": "/isaretlenebilir-turkiye-haritasi/static/js/main.fcb7ced4.js",
     "index.html": "/isaretlenebilir-turkiye-haritasi/index.html",
     "main.350da595.css.map": "/isaretlenebilir-turkiye-haritasi/static/css/main.350da595.css.map",
-    "main.c4f27708.js.map": "/isaretlenebilir-turkiye-haritasi/static/js/main.c4f27708.js.map"
+    "main.fcb7ced4.js.map": "/isaretlenebilir-turkiye-haritasi/static/js/main.fcb7ced4.js.map"
   },
   "entrypoints": [
     "static/css/main.350da595.css",
-    "static/js/main.c4f27708.js"
+    "static/js/main.fcb7ced4.js"
   ]
 }
