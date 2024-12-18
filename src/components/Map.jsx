@@ -12,47 +12,59 @@ const MapContainer = styled.div`
 const Map = () => {
   const svgRef = useRef(null);
   const [selectedColor, setSelectedColor] = useState('green');
-  const [coloredCities, setColoredCities] = useState({});
+  const [coloredCities, setColoredCities] = useState(() => {
+    const saved = localStorage.getItem('coloredCities');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem('coloredCities', JSON.stringify(coloredCities));
+  }, [coloredCities]);
 
   useEffect(() => {
     // SVG'yi yükle
-    fetch('./turkey-map.svg')
+    fetch(`${process.env.PUBLIC_URL}/turkey-map.svg`)
       .then(response => response.text())
       .then(svgText => {
         // SVG'yi DOM'a ekle
-        svgRef.current.innerHTML = svgText;
+        if (svgRef.current) {
+          svgRef.current.innerHTML = svgText;
 
-        // Tüm illere tıklama olayı ekle
-        const paths = svgRef.current.querySelectorAll('path.st0');
-        paths.forEach((path, index) => {
-          const cityId = `city-${index}`;
-          path.id = cityId;
-          
-          // Başlangıç stilleri
-          path.style.cursor = 'pointer';
-          path.style.fill = coloredCities[cityId] || 'transparent';
-          
-          path.onclick = () => {
-            // Şu anki rengi kontrol et
-            const currentColor = coloredCities[cityId];
+          // Tüm illere tıklama olayı ekle
+          const paths = svgRef.current.querySelectorAll('path.st0');
+          paths.forEach((path, index) => {
+            const cityId = `city-${index}`;
+            path.id = cityId;
             
-            // Eğer aynı renkse şeffaf yap, değilse seçili renge boya
-            if (currentColor === selectedColor) {
-              setColoredCities(prev => {
-                const newState = { ...prev };
-                delete newState[cityId];
-                return newState;
-              });
-              path.style.fill = 'transparent';
-            } else {
-              setColoredCities(prev => ({
-                ...prev,
-                [cityId]: selectedColor
-              }));
-              path.style.fill = selectedColor;
-            }
-          };
-        });
+            // Başlangıç stilleri
+            path.style.cursor = 'pointer';
+            path.style.fill = coloredCities[cityId] || 'transparent';
+            
+            path.onclick = () => {
+              // Şu anki rengi kontrol et
+              const currentColor = coloredCities[cityId];
+              
+              // Eğer aynı renkse şeffaf yap, değilse seçili renge boya
+              if (currentColor === selectedColor) {
+                setColoredCities(prev => {
+                  const newState = { ...prev };
+                  delete newState[cityId];
+                  return newState;
+                });
+                path.style.fill = 'transparent';
+              } else {
+                setColoredCities(prev => ({
+                  ...prev,
+                  [cityId]: selectedColor
+                }));
+                path.style.fill = selectedColor;
+              }
+            };
+          });
+        }
+      })
+      .catch(error => {
+        console.error('SVG yüklenirken hata oluştu:', error);
       });
   }, [selectedColor, coloredCities]);
 
