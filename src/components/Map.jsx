@@ -18,7 +18,7 @@ const Map = () => {
 
   useEffect(() => {
     // SVG'yi yükle
-    fetch('/turkey-map.svg')
+    fetch(process.env.PUBLIC_URL + '/turkey-map.svg')
       .then(response => response.text())
       .then(svgText => {
         // SVG'yi DOM'a ekle
