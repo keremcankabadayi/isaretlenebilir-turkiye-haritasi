@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "./static/css/main.350da595.css",
-    "main.js": "./static/js/main.44a2b1ee.js",
-    "index.html": "./index.html",
-    "main.350da595.css.map": "./static/css/main.350da595.css.map",
-    "main.44a2b1ee.js.map": "./static/js/main.44a2b1ee.js.map"
+    "main.css": "/isaretlenebilir-turkiye-haritasi/static/css/main.350da595.css",
+    "main.js": "/isaretlenebilir-turkiye-haritasi/static/js/main.77d6cab9.js",
+    "index.html": "/isaretlenebilir-turkiye-haritasi/index.html",
+    "main.350da595.css.map": "/isaretlenebilir-turkiye-haritasi/static/css/main.350da595.css.map",
+    "main.77d6cab9.js.map": "/isaretlenebilir-turkiye-haritasi/static/js/main.77d6cab9.js.map"
   },
   "entrypoints": [
     "static/css/main.350da595.css",
-    "static/js/main.44a2b1ee.js"
+    "static/js/main.77d6cab9.js"
   ]
 }
