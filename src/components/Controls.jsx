@@ -52,14 +52,14 @@ const Controls = ({ selectedColor, onColorSelect, onClear, onSave }) => {
     <ControlsContainer>
       <ColorButtons>
         <ColorButton 
-          color="green"
-          isSelected={selectedColor === 'green'}
-          onClick={() => onColorSelect('green')}
+          color="#A4907C"
+          isSelected={selectedColor === '#A4907C'}
+          onClick={() => onColorSelect('#A4907C')}
         />
         <ColorButton 
-          color="red"
-          isSelected={selectedColor === 'red'}
-          onClick={() => onColorSelect('red')}
+          color="#FFF4CF"
+          isSelected={selectedColor === '#FFF4CF'}
+          onClick={() => onColorSelect('#FFF4CF')}
         />
         <ColorButton 
           color="#4B89DC"

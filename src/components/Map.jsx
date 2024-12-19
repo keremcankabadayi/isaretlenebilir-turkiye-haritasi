@@ -21,7 +21,7 @@ const VersionText = styled.div`
 
 const Map = () => {
   const svgRef = useRef(null);
-  const [selectedColor, setSelectedColor] = useState('#4B89DC');
+  const [selectedColor, setSelectedColor] = useState('#A4907C');
   const [coloredCities, setColoredCities] = useState(() => {
     const saved = localStorage.getItem('coloredCities');
     return saved ? JSON.parse(saved) : {};
