@@ -5,14 +5,14 @@ const ControlsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.25rem;
+  margin-bottom: 0;
 `;
 
 const ColorButtons = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 const ColorButton = styled.button`
@@ -23,6 +23,21 @@ const ColorButton = styled.button`
   cursor: pointer;
   background-color: ${props => props.color};
   border: 2px solid ${props => props.isSelected ? '#000' : 'transparent'};
+  position: relative;
+
+  &:hover::after {
+    content: '${props => props.meaning}';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -44,38 +59,22 @@ const ActionButton = styled.button`
 
 const ButtonGroup = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
-const Controls = ({ selectedColor, onColorSelect, onClear, onSave }) => {
+const Controls = ({ selectedColor, onColorSelect, onClear, onSave, colorMeanings }) => {
   return (
     <ControlsContainer>
       <ColorButtons>
-        <ColorButton 
-          color="#A4907C"
-          isSelected={selectedColor === '#A4907C'}
-          onClick={() => onColorSelect('#A4907C')}
-        />
-        <ColorButton 
-          color="#FFF4CF"
-          isSelected={selectedColor === '#FFF4CF'}
-          onClick={() => onColorSelect('#FFF4CF')}
-        />
-        <ColorButton 
-          color="#4B89DC"
-          isSelected={selectedColor === '#4B89DC'}
-          onClick={() => onColorSelect('#4B89DC')}
-        />
-        <ColorButton 
-          color="#90B77D"
-          isSelected={selectedColor === '#90B77D'}
-          onClick={() => onColorSelect('#90B77D')}
-        />
-        <ColorButton 
-          color="#FAA0A0"
-          isSelected={selectedColor === '#FAA0A0'}
-          onClick={() => onColorSelect('#FAA0A0')}
-        />
+        {colorMeanings.map((item, index) => (
+          <ColorButton 
+            key={index}
+            color={item.color}
+            meaning={item.meaning}
+            isSelected={selectedColor === item.color}
+            onClick={() => onColorSelect(item.color)}
+          />
+        ))}
       </ColorButtons>
       <ButtonGroup>
         <ActionButton onClick={onClear}>
