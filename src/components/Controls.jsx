@@ -66,6 +66,16 @@ const Controls = ({ selectedColor, onColorSelect, onClear, onSave }) => {
           isSelected={selectedColor === '#4B89DC'}
           onClick={() => onColorSelect('#4B89DC')}
         />
+        <ColorButton 
+          color="#90B77D"
+          isSelected={selectedColor === '#90B77D'}
+          onClick={() => onColorSelect('#90B77D')}
+        />
+        <ColorButton 
+          color="#FAA0A0"
+          isSelected={selectedColor === '#FAA0A0'}
+          onClick={() => onColorSelect('#FAA0A0')}
+        />
       </ColorButtons>
       <ButtonGroup>
         <ActionButton onClick={onClear}>
