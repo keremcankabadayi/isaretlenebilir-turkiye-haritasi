@@ -86,6 +86,37 @@ const MeaningInput = styled.input`
   }
 `;
 
+const ColorLegend = styled.div`
+  position: absolute;
+  bottom: 25px;
+  left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 6px 10px;
+  border-radius: 6px;
+  max-width: 520px;
+`;
+
+const LegendItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #555;
+  min-width: 140px;
+  width: calc(33.33% - 12px);
+`;
+
+const LegendDot = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background-color: ${props => props.color};
+  flex-shrink: 0;
+`;
+
 const ContextMenu = styled.div`
   position: fixed;
   z-index: 1000;
@@ -529,6 +560,16 @@ const Map = () => {
         onChange={handleImport}
       />
       <div ref={svgRef} />
+      {colorMeanings.length > 0 && (
+        <ColorLegend>
+          {colorMeanings.map((item, index) => (
+            <LegendItem key={index}>
+              <LegendDot color={item.color} />
+              <span>{item.meaning}</span>
+            </LegendItem>
+          ))}
+        </ColorLegend>
+      )}
       <VersionText>v{packageJson.version}</VersionText>
 
       {contextMenu.visible && (
