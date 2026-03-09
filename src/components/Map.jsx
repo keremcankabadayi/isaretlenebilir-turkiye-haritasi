@@ -86,7 +86,12 @@ const Map = () => {
       { color: '#FFF4CF', meaning: 'Anlam 2' },
       { color: '#4B89DC', meaning: 'Anlam 3' },
       { color: '#90B77D', meaning: 'Anlam 4' },
-      { color: '#FAA0A0', meaning: 'Anlam 5' }
+      { color: '#FAA0A0', meaning: 'Anlam 5' },
+      { color: '#C39BD3', meaning: 'Anlam 6' },
+      { color: '#F0B27A', meaning: 'Anlam 7' },
+      { color: '#76D7C4', meaning: 'Anlam 8' },
+      { color: '#F7DC6F', meaning: 'Anlam 9' },
+      { color: '#AED6F1', meaning: 'Anlam 10' }
     ];
   });
 
@@ -180,7 +185,7 @@ const Map = () => {
     img.onload = () => {
       const canvas = document.createElement('canvas');
       const padding = 60; // Başlık için üst padding
-      const legendPadding = 150; // 100'den 150'ye çıkardık - Renk açıklamaları için alt padding
+      const legendPadding = 300;
       canvas.width = svg.clientWidth;
       canvas.height = svg.clientHeight + padding + legendPadding;
       const ctx = canvas.getContext('2d');
